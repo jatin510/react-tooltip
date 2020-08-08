@@ -36,3 +36,31 @@
     transform: rotate(360deg);
   }
 }
+
+/* my css */
+
+.App {
+}
+.tool-tip-bottom,
+.tool-tip-top {
+  color: red;
+  padding: 20px;
+  /* visibility: hidden; */
+}
+
+.main {
+  padding: 10px 20px;
+  background-color: blue;
+  border: 0px;
+  border-radius: 30px;
+  color: white;
+  font-weight: 800;
+}
+
+.selected-state {
+  text-transform: capitalize;
+}
+
+#dropdown {
+  padding: 2px 4px;
+}
