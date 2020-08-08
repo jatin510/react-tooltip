@@ -41,11 +41,16 @@
 
 .App {
 }
+
+.tool-top {
+  position: absolute;
+}
 .tool-tip-bottom,
 .tool-tip-top {
-  color: red;
+  color: white;
   padding: 20px;
-  /* visibility: hidden; */
+  font-weight: 900;
+  background-color: orangered;
 }
 
 .main {
@@ -66,5 +71,6 @@
 }
 
 .img {
-  height: 35px;
+  /* height: 20px; */
+  /* transform: translateX(-23230%, -5000%); */
 }

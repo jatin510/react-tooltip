@@ -8,10 +8,8 @@ class App extends React.Component {
     super();
 
     this.state = {
-      showImage: false,
-
       selectedValue: "top",
-      imgUrl: "https://image.flaticon.com/icons/svg/860/860802.svg",
+      // imgUrl: "https://image.flaticon.com/icons/svg/860/860802.svg",
 
       styleTop: {
         visibility: "hidden",
@@ -19,6 +17,10 @@ class App extends React.Component {
 
       styleBottom: {
         visibility: "hidden",
+      },
+
+      styleImg: {
+        visibility: "visible",
       },
     };
   }
@@ -36,6 +38,7 @@ class App extends React.Component {
       this.setState({
         styleTop: { visibility: "visible" },
         styleBottom: { visibility: "hidden" },
+        styleImg: { visibility: "visible" },
       });
     }
     // show bottom
@@ -52,50 +55,40 @@ class App extends React.Component {
     this.setState({
       styleTop: { visibility: "hidden" },
       styleBottom: { visibility: "hidden" },
+      styleImg: { visibility: "hidden" },
     });
   };
 
-  showDownloadImage = () => {
-    this.setState({ showImage: true });
-    console.log("show img :", this.state.showImage);
-  };
-
-  hideDownloadImage = () => {
-    this.setState({ showImage: false });
-  };
-
   render() {
-    const { showImage, imgUrl } = this.state;
+    const { showImage, imgUrl, styleImg } = this.state;
     return (
       <div className="App">
-        <div>
+        <div className="tool-tip">
           {/* top Component */}
+          <br />
+          <br />
 
           <Top style={this.state} />
+
+          <br />
           <br />
           <button
             className="main"
-            onMouseOver={() => {
-              this.showToolTip();
-              this.showDownloadImage();
-            }}
-            onMouseOut={() => {
-              this.hideToolTip();
-              this.hideDownloadImage();
-            }}
+            onMouseOver={this.showToolTip}
+            onMouseOut={this.hideToolTip}
           >
             Download
           </button>
-          {/* {(() => {
-            if (showImage) return <img src={imgUrl} className="img" />;
-            // if (showImage) return <div>hello</div>;
-          })()} */}
 
-          <img src={imgUrl} className="img" />
+          <img src={imgUrl} className="img" style={styleImg} />
+          <br />
           <br />
 
           {/* bottom component */}
           <Bottom style={this.state}></Bottom>
+
+          <br />
+          <br />
         </div>
 
         <select id="dropdown" onChange={this.handleChange}>
@@ -107,7 +100,7 @@ class App extends React.Component {
         <br />
         <br />
         <div className="selected">
-          Selected value is :{" "}
+          Tooltip direction is :{" "}
           <span className="selected-state">{this.state.selectedValue}</span>
         </div>
       </div>
