@@ -9,7 +9,6 @@ class App extends React.Component {
 
     this.state = {
       selectedValue: "top",
-      // imgUrl: "https://image.flaticon.com/icons/svg/860/860802.svg",
 
       styleTop: {
         visibility: "hidden",
@@ -17,10 +16,6 @@ class App extends React.Component {
 
       styleBottom: {
         visibility: "hidden",
-      },
-
-      styleImg: {
-        visibility: "visible",
       },
     };
   }
@@ -38,7 +33,6 @@ class App extends React.Component {
       this.setState({
         styleTop: { visibility: "visible" },
         styleBottom: { visibility: "hidden" },
-        styleImg: { visibility: "visible" },
       });
     }
     // show bottom
@@ -55,12 +49,10 @@ class App extends React.Component {
     this.setState({
       styleTop: { visibility: "hidden" },
       styleBottom: { visibility: "hidden" },
-      styleImg: { visibility: "hidden" },
     });
   };
 
   render() {
-    const { showImage, imgUrl, styleImg } = this.state;
     return (
       <div className="App">
         <div className="tool-tip">
@@ -80,7 +72,6 @@ class App extends React.Component {
             Download
           </button>
 
-          <img src={imgUrl} className="img" style={styleImg} />
           <br />
           <br />
 
@@ -99,6 +90,7 @@ class App extends React.Component {
         <br />
         <br />
         <br />
+
         <div className="selected">
           Tooltip direction is :{" "}
           <span className="selected-state">{this.state.selectedValue}</span>
