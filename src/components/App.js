@@ -8,7 +8,10 @@ class App extends React.Component {
     super();
 
     this.state = {
+      showImage: false,
+
       selectedValue: "top",
+      imgUrl: "https://image.flaticon.com/icons/svg/860/860802.svg",
 
       styleTop: {
         visibility: "hidden",
@@ -52,9 +55,17 @@ class App extends React.Component {
     });
   };
 
-  showDownloadImage = () => {};
-  hideDownloadImage = () => {};
+  showDownloadImage = () => {
+    this.setState({ showImage: true });
+    console.log("show img :", this.state.showImage);
+  };
+
+  hideDownloadImage = () => {
+    this.setState({ showImage: false });
+  };
+
   render() {
+    const { showImage, imgUrl } = this.state;
     return (
       <div className="App">
         <div>
@@ -75,6 +86,12 @@ class App extends React.Component {
           >
             Download
           </button>
+          {/* {(() => {
+            if (showImage) return <img src={imgUrl} className="img" />;
+            // if (showImage) return <div>hello</div>;
+          })()} */}
+
+          <img src={imgUrl} className="img" />
           <br />
 
           {/* bottom component */}
