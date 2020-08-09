@@ -2,6 +2,8 @@ import React from "react";
 
 import Top from "./Top";
 import Bottom from "./Bottom";
+import Left from "./Left";
+import Right from "./Right";
 
 class App extends React.Component {
   constructor() {
@@ -11,6 +13,14 @@ class App extends React.Component {
       selectedValue: "top",
 
       styleTop: {
+        visibility: "hidden",
+      },
+
+      styleLeft: {
+        visibility: "hidden",
+      },
+
+      styleRight: {
         visibility: "hidden",
       },
 
@@ -33,13 +43,35 @@ class App extends React.Component {
       this.setState({
         styleTop: { visibility: "visible" },
         styleBottom: { visibility: "hidden" },
+        styleLeft: { visibility: "hidden" },
+        styleRight: { visibility: "hidden" },
       });
     }
     // show bottom
-    else {
+    else if (this.state.selectedValue === "bottom") {
       this.setState({
         styleTop: { visibility: "hidden" },
         styleBottom: { visibility: "visible" },
+        styleLeft: { visibility: "hidden" },
+        styleRight: { visibility: "hidden" },
+      });
+    }
+    // show left
+    else if (this.state.selectedValue === "left") {
+      this.setState({
+        styleTop: { visibility: "hidden" },
+        styleBottom: { visibility: "hidden" },
+        styleLeft: { visibility: "visible" },
+        styleRight: { visibility: "hidden" },
+      });
+    }
+    // show right
+    else {
+      this.setState({
+        styleTop: { visibility: "hidden" },
+        styleBottom: { visibility: "hidden" },
+        styleLeft: { visibility: "hidden" },
+        styleRight: { visibility: "visible" },
       });
     }
   };
@@ -49,6 +81,8 @@ class App extends React.Component {
     this.setState({
       styleTop: { visibility: "hidden" },
       styleBottom: { visibility: "hidden" },
+      styleLeft: { visibility: "hidden" },
+      styleRight: { visibility: "hidden" },
     });
   };
 
@@ -59,11 +93,11 @@ class App extends React.Component {
           {/* top Component */}
           <br />
           <br />
-
           <Top style={this.state} />
-
           <br />
           <br />
+          <Left style={this.state} />
+          &nbsp; &nbsp;
           <button
             className="main"
             onMouseOver={this.showToolTip}
@@ -71,13 +105,12 @@ class App extends React.Component {
           >
             Download
           </button>
-
+          &nbsp; &nbsp;
+          <Right style={this.state} />
           <br />
           <br />
-
           {/* bottom component */}
           <Bottom style={this.state}></Bottom>
-
           <br />
           <br />
         </div>
@@ -85,6 +118,8 @@ class App extends React.Component {
         <select id="dropdown" onChange={this.handleChange}>
           <option value="top">Top</option>
           <option value="bottom">Bottom</option>
+          <option value="left">Left</option>
+          <option value="right">Right</option>
         </select>
 
         <br />

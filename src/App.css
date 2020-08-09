@@ -46,11 +46,16 @@
   position: absolute;
 }
 .tool-tip-bottom,
+.tool-tip-left,
+.tool-tip-right,
 .tool-tip-top {
   color: white;
   padding: 20px;
   font-weight: 900;
   background-color: orangered;
+}
+
+.tool-tip-top {
 }
 
 .main {
